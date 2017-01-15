@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeCinema.Entities", "HomeCinema.Entities\HomeCinema.Entities.csproj", "{BFFD08C1-695E-427E-8B00-2B44A26FD893}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B9E958ED-C262-40A9-8AB4-BBA3695F3B34}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeCinema.Data", "HomeCinema.Data\HomeCinema.Data.csproj", "{2589508F-68D9-46DA-821E-9D7A03FE9C2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{BFFD08C1-695E-427E-8B00-2B44A26FD893}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFFD08C1-695E-427E-8B00-2B44A26FD893}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFFD08C1-695E-427E-8B00-2B44A26FD893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2589508F-68D9-46DA-821E-9D7A03FE9C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2589508F-68D9-46DA-821E-9D7A03FE9C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2589508F-68D9-46DA-821E-9D7A03FE9C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2589508F-68D9-46DA-821E-9D7A03FE9C2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

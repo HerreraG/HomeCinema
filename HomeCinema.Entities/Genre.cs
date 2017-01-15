@@ -12,7 +12,7 @@ namespace HomeCinema.Entities {
         }
 
         public int Id { get; set; }
-        public String name { get; set; }
+        public String Name { get; set; }
         public virtual ICollection<Movie> Movies { get; set; }
 
 

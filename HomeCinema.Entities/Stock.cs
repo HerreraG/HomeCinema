@@ -8,7 +8,7 @@ namespace HomeCinema.Entities {
     public class Stock : IEntityBase {
 
         public Stock() {
-            Retals = new List<Rental>();
+            Rentals = new List<Rental>();
         }
 
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace HomeCinema.Entities {
         public virtual Movie Movie { get; set; }
         public Guid UniqueKey { get; set; }
         public bool IsAvailable { get; set; }
-        public virtual ICollection<Rental> Retals { get; set; }
+        public virtual ICollection<Rental> Rentals { get; set; }
 
     }
 }
