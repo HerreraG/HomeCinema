@@ -41,7 +41,7 @@ namespace HomeCinema.Web.Controllers {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                var movies = _moviesRepository.GetAll().OrderByDescending(m => m.ReleaseDate).Take(6).ToList();
+                var movies = this._moviesRepository.GetAll().OrderByDescending(m => m.ReleaseDate).Take(6).ToList();
                 var moviesVm = Mapper.Map<IEnumerable<Movie>,
                 IEnumerable<MovieViewModel>>(movies);
                 response = request.CreateResponse<IEnumerable<MovieViewModel>>(HttpStatusCode.OK, moviesVm);

@@ -12,7 +12,7 @@ namespace HomeCinema.Web.App_Start {
                         "~/Scripts/Vendors/modernizr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendors").Include(
-                        "~/Scripts/Vendors/jquery.min.js",
+                        "~/Scripts/Vendors/jquery.js",
                         "~/Scripts/Vendors/bootstrap.min.js",
                         "~/Scripts/Vendors/toastr.js",
                         "~/Scripts/Vendors/jquery.raty.js",

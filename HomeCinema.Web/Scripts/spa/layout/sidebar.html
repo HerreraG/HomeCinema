@@ -5,29 +5,29 @@
             <li class="nav-divider"></li>
             <li class="">
                 <a ng-href="#/">
-                    Home<i class="fa fa-home fa-fw pullright"></i>
+                    Home<i class="fa fa-home fa-fw pull-right"></i>
                 </a>
             </li>
             <li class="nav-divider"></li>
             <li>
                 <a ng-href="#/customers/">
-                    Customers<i class="fa fa-users fa-fw pullright"></i>
+                    Customers<i class="fa fa-users fa-fw pull-right"></i>
                 </a>
             </li>
             <li>
                 <a ng-href="#/customers/register">
-                    Register customer<i class="fa fauser-plus fa-fw pull-right"></i>
+                    Register customer<i class="fa fa-user-plus pull-right" aria-hidden="true"></i>
                 </a>
             </li>
             <li class="nav-divider"></li>
             <li>
                 <a ng-href="#/movies/">
-                    Movies<i class="fa fa-film fa-fw pullright"></i>
+                    Movies<i class="fa fa-film fa-fw pull-right"></i>
                 </a>
             </li>
             <li>
                 <a ng-href="#/movies/add">
-                    Add movie<i class="fa fa-plus-circle fa-fwpull-right"></i>
+                    Add movie<i class="fa fa-plus-circle fa-fw pull-right"></i>
                 </a>
             </li>
             <li class="nav-divider"></li>
@@ -43,9 +43,11 @@
                 </a>
             </li>
             <li>
-                <button type="button" class="btn btn-danger btn-sm" ng
-                        click="logout();" ng-if="userData.isUserLoggedIn">
-                    Logout<i class="fa fa-sign-out fa-fw pull-right"></i></a>
+                <button type="button" class="btn btn-danger btn-sm" 
+                        ng-click="logout();" 
+                        ng-if="userData.isUserLoggedIn">Logout
+                    <i class="fa fa-sign-out fa-fw pull-right"></i>
+                </button>
             </li>
         </ul>
     </div>
