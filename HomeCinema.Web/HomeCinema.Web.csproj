@@ -172,6 +172,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\spa\account\login.html" />
+    <Content Include="Scripts\spa\account\loginCtrl.js" />
+    <Content Include="Scripts\spa\account\register.html" />
+    <Content Include="Scripts\spa\account\registerCtrl.js" />
     <Content Include="Scripts\spa\app.js" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
     <Content Include="Scripts\spa\directives\componentRating.directive.js" />
@@ -183,6 +187,7 @@
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.html" />
     <Content Include="Scripts\spa\services\apiService.js" />
+    <Content Include="Scripts\spa\services\membershipService.js" />
     <Content Include="Scripts\spa\services\notificationService.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -192,20 +197,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\GenresController.cs" />
+    <Compile Include="Controllers\Api\AccountController.cs" />
+    <Compile Include="Controllers\Api\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Core\ApiControllerBase.cs" />
     <Compile Include="Infrastructure\Extensions\RequestMessageExtensions.cs" />
+    <Compile Include="Infrastructure\Validators\AccountViewModelValidators.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Infrastructure\MessageHandlers\HomeCinemaAuthHandler.cs" />
     <Compile Include="Infrastructure\Validators\MovieViewModelValidator.cs" />
     <Compile Include="Models\GenreViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MovieViewModel.cs" />
+    <Compile Include="Models\RegistrationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
