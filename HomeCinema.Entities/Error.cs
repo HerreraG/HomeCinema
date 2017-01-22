@@ -9,7 +9,7 @@ namespace HomeCinema.Entities {
 
         public int Id { get; set; }
         public String Message { get; set; }
-        public String StrackTrace { get; set; }
+        public String StackTrace { get; set; }
         public DateTime DateCreated { get; set; }
     }
 }

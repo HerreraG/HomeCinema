@@ -12,25 +12,25 @@ namespace HomeCinema.Web.App_Start {
                         "~/Scripts/Vendors/modernizr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendors").Include(
-                        "~/Scripts/Vendors/jquery.js",
-                        "~/Scripts/Vendors/bootstrap.js",
-                        "~/Scripts/Vendors/toastr.j s",
+                        "~/Scripts/Vendors/jquery.min.js",
+                        "~/Scripts/Vendors/bootstrap.min.js",
+                        "~/Scripts/Vendors/toastr.js",
                         "~/Scripts/Vendors/jquery.raty.js",
                         "~/Scripts/Vendors/respond.src.js",
-                        "~/Scripts/Vendors/angular.js",
-                        "~/Scripts/Vendors/angular-route.js",
-                        "~/Scripts/Vendors/angular-cookies.js",
-                        "~/Scripts/Vendors/angular-validator.js",
-                        "~/Scripts/Vendors/angular-base64.js",
-                        "~/Scripts/Vendors/angular-file-upload.js",
+                        "~/Scripts/Vendors/angular.min.js",
+                        "~/Scripts/Vendors/angular-route.min.js",
+                        "~/Scripts/Vendors/angular-cookies.min.js",
+                        "~/Scripts/Vendors/angular-validator.min.js",
+                        "~/Scripts/Vendors/angular-base64.min.js",
+                        "~/Scripts/Vendors/angular-file-upload.min.js",
                         "~/Scripts/Vendors/angucomplete-alt.min.js",
-                        "~/Scripts/Vendors/ui-bootstrap-tpls-0.13.1.js",
+                        "~/Scripts/Vendors/ui-bootstrap.min.js",
                         "~/Scripts/Vendors/underscore.js",
                         "~/Scripts/Vendors/raphael.js",
                         "~/Scripts/Vendors/morris.js",
                         "~/Scripts/Vendors/jquery.fancybox.js",
                         "~/Scripts/Vendors/jquery.fancybox-media.js",
-                        "~/Scripts/Vendors/loading-bar.js"
+                        "~/Scripts/Vendors/loading-bar.min.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/spa").Include(
@@ -64,13 +64,13 @@ namespace HomeCinema.Web.App_Start {
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/content/css/site.css",
-                    "~/content/css/bootstrap.css",
-                    "~/content/css/bootstrap-theme.css",
+                    "~/content/css/bootstrap.min.css",
+                    "~/content/css/bootstrap-theme.min.css",
                     "~/content/css/font-awesome.css",
                     "~/content/css/morris.css",
                     "~/content/css/toastr.css",
                     "~/content/css/jquery.fancybox.css",
-                    "~/content/css/loading-bar.css"));
+                    "~/content/css/loading-bar.min.css"));
             BundleTable.EnableOptimizations = false;        
         }
     }
