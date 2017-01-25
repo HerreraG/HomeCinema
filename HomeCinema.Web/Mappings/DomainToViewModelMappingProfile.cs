@@ -20,10 +20,11 @@ namespace HomeCinema.Web.Infrastructure.Mappings {
                 .ForMember(vm => vm.Genre, map => map.MapFrom(m => m.Genre.Name))
                 .ForMember(vm => vm.GenreId, map => map.MapFrom(m => m.Genre.Id))
                 .ForMember(vm => vm.IsAvailable, map => map.MapFrom(m => m.Stocks.Any(s => s.IsAvailable)));
-
-
+              
             Mapper.CreateMap<Genre, GenreViewModel>()
                 .ForMember(vm => vm.NumberOfMovies, map => map.MapFrom(g => g.Movies.Count()));
+
+            Mapper.CreateMap<Customer, CustomerViewModel>();
         }
     }
 }
