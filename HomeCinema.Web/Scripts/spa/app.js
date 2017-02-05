@@ -6,9 +6,9 @@
            .config(config)
            .run(run);
 
-    config.inject = ['$routeProvider'];
+    config.inject = ['$routeProvider', '$locationProvider'];
 
-    function config($routeProvider) {
+    function config($routeProvider, $locationProvider) {
         $routeProvider
         .when("/", {
             templateUrl: "scripts/spa/home/index.html",
@@ -23,12 +23,13 @@
             controller: "registerCtrl"
         })
         .when("/customers", {
-            templateUrl: "scripts/spa/customers/index.html",
+            templateUrl: "scripts/spa/customers/customers.html",
             controller: "customersCtrl"
         })
         .when("/customers/register", {
             templateUrl: "scripts/spa/customers/register.html",
-            controller: "customersRegCtrl"
+            controller: "customersRegCtrl",
+            resolve: { isAuthenticated: isAuthenticated }
         })
         .when("/movies", {
             templateUrl: "scripts/spa/movies/index.html",
@@ -50,6 +51,17 @@
             templateUrl: "scripts/spa/rental/index.html",
             controller: "rentStatsCtrl"
         }).otherwise({ redirectTo: "/" });
+
+        $locationProvider.hashPrefix('');
+    }
+
+    isAuthenticated.$inject = ['membershipService', '$rootScope', '$location'];
+
+    function isAuthenticated(membershipService, $rootScope, $location) {
+        if (!membershipService.isUserLoggedIn()) {
+            $rootScope.previousState = $location.path();
+            $location.path('/login');
+        }
     }
 
     run.inject = ['$rootScope', '$location', '$cookieStore', '$http'];
