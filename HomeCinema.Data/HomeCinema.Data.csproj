@@ -58,6 +58,7 @@
     <Compile Include="Configurations\StockConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Configurations\UserRoleConfiguration.cs" />
+    <Compile Include="Extensions\CustomerExtensions.cs" />
     <Compile Include="Extensions\UserExtensions.cs" />
     <Compile Include="HomeCinemaContext.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />

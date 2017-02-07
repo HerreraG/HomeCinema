@@ -24,7 +24,7 @@ namespace HomeCinema.Web.App_Start {
                         "~/Scripts/Vendors/angular-base64.min.js",
                         "~/Scripts/Vendors/angular-file-upload.min.js",
                         "~/Scripts/Vendors/angucomplete-alt.min.js",
-                        "~/Scripts/Vendors/ui-bootstrap.min.js",
+                        "~/Scripts/Vendors/ui-bootstrap-tpls-2.4.0.js",
                         "~/Scripts/Vendors/underscore.js",
                         "~/Scripts/Vendors/raphael.js",
                         "~/Scripts/Vendors/morris.js",
