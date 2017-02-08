@@ -234,6 +234,12 @@
     <Content Include="Scripts\spa\layout\sidebar.html" />
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.html" />
+    <Content Include="Scripts\spa\movies\details.html" />
+    <Content Include="Scripts\spa\movies\index.html" />
+    <Content Include="Scripts\spa\movies\movieDetailsCtrl.js" />
+    <Content Include="Scripts\spa\movies\moviesCtrl.js" />
+    <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
+    <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\services\apiService.js" />
     <Content Include="Scripts\spa\services\membershipService.js" />
     <Content Include="Scripts\spa\services\notificationService.js" />
@@ -267,6 +273,8 @@
     <Compile Include="Controllers\Api\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\GenresController.cs" />
+    <Compile Include="Controllers\Api\RentalsController.cs" />
+    <Compile Include="Controllers\Api\StocksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -287,6 +295,7 @@
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MovieViewModel.cs" />
     <Compile Include="Models\RegistrationViewModel.cs" />
+    <Compile Include="Models\RentalHistoryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

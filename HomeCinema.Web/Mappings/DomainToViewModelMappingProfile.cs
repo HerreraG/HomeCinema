@@ -25,6 +25,10 @@ namespace HomeCinema.Web.Infrastructure.Mappings {
                 .ForMember(vm => vm.NumberOfMovies, map => map.MapFrom(g => g.Movies.Count()));
 
             Mapper.CreateMap<Customer, CustomerViewModel>();
+
+            Mapper.CreateMap<Stock, StockViewModel>();
+
+            Mapper.CreateMap<Rental, RentalViewModel>();
         }
     }
 }

@@ -21,5 +21,18 @@ namespace HomeCinema.Web.Infrastructure.Extensions {
                 ? Guid.NewGuid() : customerVm.UniqueKey;
             customer.RegistrationDate = (customer.RegistrationDate == DateTime.MinValue ? DateTime.Now : customerVm.RegistrationDate);
         }
+
+
+        public static void UpdateMovie(this Movie movie, MovieViewModel movieVm) {
+            movie.Title = movieVm.Title;
+            movie.Description = movieVm.Description;
+            movie.GenreId = movieVm.GenreId;
+            movie.Director = movieVm.Director;
+            movie.Writer = movieVm.Writer;
+            movie.Producer = movieVm.Producer;
+            movie.Rating = movieVm.Rating;
+            movie.TrailerURI = movieVm.TrailerURI;
+            movie.ReleaseDate = movieVm.ReleaseDate;
+        }
     }
 }
