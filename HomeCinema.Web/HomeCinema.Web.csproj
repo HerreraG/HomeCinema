@@ -242,6 +242,8 @@
     <Content Include="Scripts\spa\movies\movieDetailsCtrl.js" />
     <Content Include="Scripts\spa\movies\movieEditCtrl.js" />
     <Content Include="Scripts\spa\movies\moviesCtrl.js" />
+    <Content Include="Scripts\spa\rental\rental.html" />
+    <Content Include="Scripts\spa\rental\rentalStatsCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\services\apiService.js" />
@@ -307,6 +309,7 @@
     <Compile Include="Models\RentalHistoryViewModel.cs" />
     <Compile Include="Models\RentalViewModel.cs" />
     <Compile Include="Models\StockViewModel.cs" />
+    <Compile Include="Models\TotalRentalHistoryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -38,6 +38,35 @@ namespace HomeCinema.Web.Controllers.Api {
         }
 
         [HttpGet]
+        [Route("rentalhistory")]
+        public HttpResponseMessage TotalRentalHistory(HttpRequestMessage request) {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                List<TotalRentalHistoryViewModel> _totalMoviesRentalHistory = new List<TotalRentalHistoryViewModel>();
+
+                var movies = _moviesRepository.GetAll();
+
+                foreach (var movie in movies) {
+                    TotalRentalHistoryViewModel _totalRentalHistory = new TotalRentalHistoryViewModel() {
+                        Id = movie.Id,
+                        Title = movie.Title,
+                        Image = movie.Image,
+                        Rentals = GetMovieRentalHistoryPerDates(movie.Id)
+                    };
+
+                    if (_totalRentalHistory.TotalRentals > 0)
+                        _totalMoviesRentalHistory.Add(_totalRentalHistory);
+                }
+
+                response = request.CreateResponse<List<TotalRentalHistoryViewModel>>(HttpStatusCode.OK, _totalMoviesRentalHistory);
+
+                return response;
+            });
+        }
+
+        [HttpGet]
         [Route("{id:int}/rentalhistory")]
         public HttpResponseMessage RentalHistory(HttpRequestMessage request, int id) {
 
@@ -139,6 +168,29 @@ namespace HomeCinema.Web.Controllers.Api {
             _rentalHistory.Sort((r1, r2) => r2.RentalDate.CompareTo(r1.RentalDate));
 
             return _rentalHistory;
+        }
+
+        private List<RentalHistoryPerDate> GetMovieRentalHistoryPerDates(int movieId) {
+            List<RentalHistoryPerDate> listHistory = new List<RentalHistoryPerDate>();
+            List<RentalHistoryViewModel> _rentalHistory = GetMovieRentalHistory(movieId);
+            if (_rentalHistory.Count > 0) {
+                List<DateTime> _distinctDates = new List<DateTime>();
+                _distinctDates = _rentalHistory.Select(h => h.RentalDate.Date).Distinct().ToList();
+
+                foreach (var distinctDate in _distinctDates) {
+                    var totalDateRentals = _rentalHistory.Count(r => r.RentalDate.Date == distinctDate);
+                    RentalHistoryPerDate _movieRentalHistoryPerDate = new RentalHistoryPerDate() {
+                        Date = distinctDate,
+                        TotalRentals = totalDateRentals
+                    };
+
+                    listHistory.Add(_movieRentalHistoryPerDate);
+                }
+
+                listHistory.Sort((r1, r2) => r1.Date.CompareTo(r2.Date));
+            }
+
+            return listHistory;
         }
 
     }
