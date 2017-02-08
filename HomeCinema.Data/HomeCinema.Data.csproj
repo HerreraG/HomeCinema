@@ -59,6 +59,7 @@
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Configurations\UserRoleConfiguration.cs" />
     <Compile Include="Extensions\CustomerExtensions.cs" />
+    <Compile Include="Extensions\StockExtensions.cs" />
     <Compile Include="Extensions\UserExtensions.cs" />
     <Compile Include="HomeCinemaContext.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
@@ -75,12 +76,6 @@
     <Compile Include="Repositories\IEntityBaseRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HomeCinema.Entities\HomeCinema.Entities.csproj">
-      <Project>{bffd08c1-695e-427e-8b00-2b44a26fd893}</Project>
-      <Name>HomeCinema.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
     <None Include="packages.config" />
@@ -89,6 +84,12 @@
     <EmbeddedResource Include="Migrations\201701150540096_initial_migration.resx">
       <DependentUpon>201701150540096_initial_migration.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeCinema.Entities\HomeCinema.Entities.csproj">
+      <Project>{bffd08c1-695e-427e-8b00-2b44a26fd893}</Project>
+      <Name>HomeCinema.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

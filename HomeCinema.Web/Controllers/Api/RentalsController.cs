@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HomeCinema.Data.Extensions;
 using HomeCinema.Data.Infrastructure;
 using HomeCinema.Data.Repositories;
 using HomeCinema.Entities;
@@ -59,10 +60,10 @@ namespace HomeCinema.Web.Controllers.Api {
                 var customer = this._customersRepository.GetSingle(customerId);
                 var stock = this._stocksRepository.GetSingle(stockId);
 
-                if(customer == null || stock == null) {
+                if (customer == null || stock == null) {
                     response = request.CreateErrorResponse(HttpStatusCode.NotFound, "Invalid customer or stock");
                 } else {
-                    if(stock.IsAvailable) { 
+                    if (stock.IsAvailable) {
                         Rental _rental = new Rental() {
                             CustomerId = customerId,
                             StockId = stockId,
@@ -83,7 +84,7 @@ namespace HomeCinema.Web.Controllers.Api {
                     }
                 }
                 return response;
-            })
+            });
         }
 
         [HttpPost]
@@ -96,7 +97,7 @@ namespace HomeCinema.Web.Controllers.Api {
                 var rental = this._rentalsRepository.GetSingle(rentalId);
 
                 if (rental == null) {
-                    response = request.CreateResponse(HttpStatusCode.NotFound, 'Invalid Rental');
+                    response = request.CreateResponse(HttpStatusCode.NotFound, "Invalid Rental");
                 } else {
                     rental.Status = "Returned";
                     rental.Stock.IsAvailable = true;

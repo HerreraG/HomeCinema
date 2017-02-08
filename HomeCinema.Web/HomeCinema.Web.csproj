@@ -235,12 +235,15 @@
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.html" />
     <Content Include="Scripts\spa\movies\details.html" />
+    <Content Include="Scripts\spa\movies\edit.html" />
     <Content Include="Scripts\spa\movies\index.html" />
     <Content Include="Scripts\spa\movies\movieDetailsCtrl.js" />
+    <Content Include="Scripts\spa\movies\movieEditCtrl.js" />
     <Content Include="Scripts\spa\movies\moviesCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieCtrl.js" />
     <Content Include="Scripts\spa\rental\rentMovieModal.html" />
     <Content Include="Scripts\spa\services\apiService.js" />
+    <Content Include="Scripts\spa\services\fileUploadService.js" />
     <Content Include="Scripts\spa\services\membershipService.js" />
     <Content Include="Scripts\spa\services\notificationService.js" />
     <Content Include="Scripts\vendors\angucomplete-alt.min.js" />
@@ -281,11 +284,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Core\ApiControllerBase.cs" />
+    <Compile Include="Infrastructure\Core\FileUploadResult.cs" />
+    <Compile Include="Infrastructure\Core\MimeMultipart.cs" />
     <Compile Include="Infrastructure\Core\PaginationSet.cs" />
+    <Compile Include="Infrastructure\Core\UploadMultipartFormProvider.cs" />
     <Compile Include="Infrastructure\Extensions\EntitiesExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\RequestMessageExtensions.cs" />
     <Compile Include="Infrastructure\Validators\AccountViewModelValidators.cs" />
     <Compile Include="Infrastructure\Validators\CustomerViewModelValidator.cs" />
+    <Compile Include="Infrastructure\Validators\StockViewModelValidator.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Infrastructure\MessageHandlers\HomeCinemaAuthHandler.cs" />
@@ -296,6 +303,8 @@
     <Compile Include="Models\MovieViewModel.cs" />
     <Compile Include="Models\RegistrationViewModel.cs" />
     <Compile Include="Models\RentalHistoryViewModel.cs" />
+    <Compile Include="Models\RentalViewModel.cs" />
+    <Compile Include="Models\StockViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

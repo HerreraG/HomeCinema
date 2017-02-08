@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using HomeCinema.Data.Extensions;
 using HomeCinema.Data.Infrastructure;
 using HomeCinema.Data.Repositories;
 using HomeCinema.Entities;
 using HomeCinema.Web.Infrastructure.Core;
+using HomeCinema.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +36,9 @@ namespace HomeCinema.Web.Controllers.Api {
                 HttpResponseMessage response = null;
 
                 stocks = this._stocksRepository.GetAvailableItems(id);
-                IEnumerable<StockViewModel> stockVm = Mapper.Map<IEnumerable<Stock>, IEnumerable<StockViewModel>>(stocks);
+                IEnumerable<StockViewModel> stocksVm = Mapper.Map<IEnumerable<Stock>, IEnumerable<StockViewModel>>(stocks);
 
-                response = request.CreateResponse<IEnumerable<StockViewModel>>(HttpStatusCode.OK, stocksVM);
+                response = request.CreateResponse<IEnumerable<StockViewModel>>(HttpStatusCode.OK, stocksVm);
                 return response;
             });
         }
