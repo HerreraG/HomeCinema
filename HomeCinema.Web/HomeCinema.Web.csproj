@@ -234,9 +234,11 @@
     <Content Include="Scripts\spa\layout\sidebar.html" />
     <Content Include="Scripts\spa\layout\topBar.directive.js" />
     <Content Include="Scripts\spa\layout\topBar.html" />
+    <Content Include="Scripts\spa\movies\add.html" />
     <Content Include="Scripts\spa\movies\details.html" />
     <Content Include="Scripts\spa\movies\edit.html" />
     <Content Include="Scripts\spa\movies\index.html" />
+    <Content Include="Scripts\spa\movies\movieAddCtrl.js" />
     <Content Include="Scripts\spa\movies\movieDetailsCtrl.js" />
     <Content Include="Scripts\spa\movies\movieEditCtrl.js" />
     <Content Include="Scripts\spa\movies\moviesCtrl.js" />

@@ -107,12 +107,42 @@ namespace HomeCinema.Web.Controllers {
             });
         }
 
+        [HttpPost]
+        [Route("add")]
+        public HttpResponseMessage Add(HttpRequestMessage request, MovieViewModel movieVm) {
+            return CreateHttpResponse(request, () => {
+                HttpResponseMessage response = null;
+
+                if (!ModelState.IsValid) {
+                    response = request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                } else {
+                    Movie newMovie = new Movie();
+                    newMovie.UpdateMovie(movieVm);
+
+                    for (int i = 0; i < movieVm.NumberOfStocks; i++) {
+                        Stock stock = new Stock() {
+                            IsAvailable = true,
+                            Movie = newMovie,
+                            UniqueKey = Guid.NewGuid()
+                        };
+
+                        newMovie.Stocks.Add(stock);
+                    }
+
+                    this._moviesRepository.Add(newMovie);
+                    this._unitOfWork.Commit();
+
+                    movieVm = Mapper.Map<Movie, MovieViewModel>(newMovie);
+                    response = request.CreateResponse<MovieViewModel>(HttpStatusCode.Created, movieVm);
+                }
+                return response;
+            });
+        }
 
         [HttpPost]
         [Route("update")]
         public HttpResponseMessage Update(HttpRequestMessage request, MovieViewModel movie) {
-            return CreateHttpResponse(request, () =>
-            {
+            return CreateHttpResponse(request, () => {
                 HttpResponseMessage response = null;
 
                 if (!ModelState.IsValid) {

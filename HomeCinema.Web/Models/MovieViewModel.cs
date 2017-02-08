@@ -22,6 +22,7 @@ namespace HomeCinema.Web.Models {
         public byte Rating { get; set; }
         public string TrailerURI { get; set; }    
         public bool IsAvailable { get; set; }
+        public int NumberOfStocks { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) { 
             var validator = new MovieViewModelValidator();
