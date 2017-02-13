@@ -4,9 +4,10 @@
 
     app.controller('movieAddCtrl', movieAddCtrl);
 
-    movieAddCtrl.$inject = ['$scope', '$location', '$routeParams', 'apiService', 'notificationService'];
 
-    function movieAddCtrl($scope, $location, $routeParams, apiService, notificationService) {
+    movieAddCtrl.$inject = ['$scope', '$location', '$routeParams', 'apiService', 'notificationService', 'fileUploadService'];
+
+    function movieAddCtrl($scope, $location, $routeParams, apiService, notificationService, fileUploadService) {
 
         $scope.pageClass = 'page-movies';
         $scope.movie = { GenreId: 1, Rating: 1, NumberOfStocks: 1 };
@@ -14,19 +15,28 @@
         $scope.genres = [];
         $scope.isReadOnly = false;
         $scope.AddMovie = AddMovie;
-        $scope.prepareFiles = preparaFiles;
-        $scope.openDatepicker = openDatepicker;
+        $scope.prepareFiles = prepareFiles;
+        $scope.openDatePicker = openDatePicker;
         $scope.changeNumberOfStocks = changeNumberOfStocks;
 
         $scope.dateOptions = {
             formatYear: 'yy',
-            starting: 1
-        }
+            maxDate: new Date(2020, 5, 22),
+            startingDay: 1
+        };
         $scope.datepicker = {};
+
+        $scope.operationStock = function (operation) {
+            if (operation == 'sum') {
+                $scope.movie.NumberOfStocks += 1;
+            } else if (operation == 'subtraction' && $scope.movie.NumberOfStocks > 1) {
+                $scope.movie.NumberOfStocks -= 1;
+            }
+        }
 
         var movieImage = null;
 
-        function LoadGenres() {
+        function loadGenres() {
             apiService.get('api/genres/', null, genresLoadCompleted, genresLoadFailed);
         }
 
@@ -53,9 +63,9 @@
         function addMovieSucceded(response) {
             notificationService.displaySuccess($scope.movie.Title + ' has been submitted to Home Cinema');
             $scope.movie = response.data;
-
+         
             if (movieImage) {
-                fileUploadService.uploadImage(movieImage, $scope.movie.ID, redirectToEdit);
+                fileUploadService.uploadImage(movieImage, $scope.movie.Id, redirectToEdit);
             }
             else {
                 redirectToEdit();
@@ -66,10 +76,7 @@
             notificationService.displayError(error.statusText);
         }
 
-        function openDatePicker($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
+        function openDatePicker() {;
             $scope.datepicker.opened = true;
         };
 

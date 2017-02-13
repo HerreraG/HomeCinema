@@ -23,7 +23,7 @@
 
             $scope.loadingMovies = true;
 
-            var confing = {
+            var config = {
                 params: {
                     page: page,
                     pageSize: 6,
@@ -50,7 +50,7 @@
             notificationService.displayError(error.data);
         }
 
-        function clearSeach() {
+        function clearSearch() {
             $scope.filterMovies = "";
             search();
         }

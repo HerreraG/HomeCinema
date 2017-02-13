@@ -264,3 +264,7 @@ ul.pagination > li
 .red {
     color: red;
 }
+/*** Custom ***/
+i.material-icons {
+    color: #FFFFFF;
+}

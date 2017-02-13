@@ -24,6 +24,7 @@ namespace HomeCinema.Web.App_Start {
                         "~/Scripts/Vendors/angular-base64.min.js",
                         "~/Scripts/Vendors/angular-file-upload.min.js",
                         "~/Scripts/Vendors/angucomplete-alt.min.js",
+                        "~/Scripts/Vendors/jk-rating-stars.min.js",
                         "~/Scripts/Vendors/ui-bootstrap-tpls-2.4.0.js",
                         "~/Scripts/Vendors/underscore.js",
                         "~/Scripts/Vendors/raphael.js",
@@ -70,6 +71,7 @@ namespace HomeCinema.Web.App_Start {
                     "~/content/css/morris.css",
                     "~/content/css/toastr.css",
                     "~/content/css/jquery.fancybox.css",
+                    "~/content/css/jk-rating-stars.min.css",
                     "~/content/css/loading-bar.min.css"));
             BundleTable.EnableOptimizations = false;        
         }

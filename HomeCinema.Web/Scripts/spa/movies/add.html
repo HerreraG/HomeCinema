@@ -6,10 +6,12 @@
             <div class="text-center">
                 <img ng-src="../../Content/images/movies/unknown.jpg" class="avatar img-responsive" alt="avatar">
                 <h6>Add photo...</h6>
-
-                <input type="file" ng-file-select="prepareFiles($files)">
             </div>
+            <input type="file" ngf-select="prepareFiles($files)" 
+                   name="file" 
+                   ngf-accept="'image/*'" required>
         </div>
+            
 
         <!-- edit form column -->
         <div class="col-xs-9 personal-info">
@@ -19,9 +21,9 @@
                 Add <strong>{{movie.Title}}</strong> movie. Make sure you fill all required fields.
             </div>
 
-            <form class="form-horizontal" role="form" 
-                  novalidate angular-validator 
-                  name="addMovieForm" 
+            <form class="form-horizontal" role="form"
+                  novalidate angular-validator
+                  name="addMovieForm"
                   angular-validator-submit="AddMovie()">
                 <div class="form-group">
                     <div class="row">
@@ -33,10 +35,9 @@
 
                         <div class="col-xs-6 col-sm-4 selectContainer">
                             <label class="control-label">Genre</label>
-                            <select ng-model="movie.GenreId" 
-                                    class="form-control black" 
-                                    ng-options="option.Id as option.Name for option in genres" required>
-                            </select>
+                            <select ng-model="movie.GenreId"
+                                    class="form-control black"
+                                    ng-options="option.Id as option.Name for option in genres" required></select>
                             <input type="hidden" name="GenreId" ng-value="movie.GenreId" />
                         </div>
 
@@ -44,20 +45,21 @@
                             <label class="control-label">Stocks</label>
                             <div class="input-group number-spinner">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" 
-                                            data-dir="dwn">
+                                    <button class="btn btn-default"
+                                            type="button"
+                                            ng-click="operationStock('subtraction')">
                                         <span class="glyphicon glyphicon-minus"></span>
                                     </button>
                                 </span>
-                                <input type="text" 
-                                       class="form-control text-center" 
-                                       id="inputStocks" 
+                                <input type="text"
+                                       class="form-control text-center"
+                                       id="inputStocks"
                                        ng-model="movie.NumberOfStocks">
                                 <span class="input-group-btn">
-                                    <button type="button" 
-                                            class="btn btn-default" 
-                                            id="btnSetStocks" 
-                                            data-dir="up">
+                                    <button type="button"
+                                            class="btn btn-default"
+                                            id="btnSetStocks"
+                                            ng-click="operationStock('sum')">
                                         <span class="glyphicon glyphicon-plus"></span>
                                     </button>
                                 </span>
@@ -93,21 +95,22 @@
                         <div class="col-xs-6">
                             <label class="control-label">Release Date</label>
                             <p class="input-group">
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="dateReleased" 
-                                       datepicker-popup="{{format}}" 
-                                       ng-model="movie.ReleaseDate" 
-                                       is-open="datepicker.opened" 
-                                       datepicker-options="dateOptions" 
-                                       ng-required="true" 
-                                       datepicker-append-to-body="true" 
+                                <input type="text"
+                                       name="dateReleased"
+                                       class="form-control"
+                                       uib-datepicker-popup
+                                       datepicker-append-to-body="true"
+                                       ng-model="movie.ReleaseDate"
+                                       is-open="datepicker.opened"
+                                       datepicker-options="dateOptions"
                                        close-text="Close"
-                                       validate-on="blur" required required-message="'Date Released is required'" />
+                                       validate-on="blur"
+                                       required
+                                       required-message="'Date Released is required'" />
                                 <span class="input-group-btn">
-                                    <button type="button" 
-                                            class="btn btn-default" 
-                                            ng-click="openDatePicker($event)">
+                                    <button type="button"
+                                            class="btn btn-default"
+                                            ng-click="openDatePicker()">
                                         <i class="glyphicon glyphicon-calendar"></i>
                                     </button>
                                 </span>
@@ -116,12 +119,12 @@
 
                         <div class="col-xs-6">
                             <label class="control-label">Youtube trailer</label>
-                            <input class="form-control" 
-                                   type="text" 
-                                   ng-model="movie.TrailerURI" 
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="movie.TrailerURI"
                                    name="trailerURI"
-                                   validate-on="blur" 
-                                   required required-message="'Movie trailer is required'" 
+                                   validate-on="blur"
+                                   required required-message="'Movie trailer is required'"
                                    ng-pattern="/^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/"
                                    invalid-message="'You must enter a valid YouTube URL'">
                         </div>
@@ -130,20 +133,24 @@
 
                 <div class="form-group">
                     <label class="control-label">Description</label>
-                    <textarea class="form-control" 
-                              ng-model="movie.Description" 
-                              name="description" 
+                    <textarea class="form-control"
+                              ng-model="movie.Description"
+                              name="description"
                               rows="3"
-                              validate-on="blur" 
+                              validate-on="blur"
                               required required-message="'Movie description is required'" />
                 </div>
 
-                <div class="form-group col-xs-12">
+                <div class="form-group">
                     <label class="control-label">Rating</label>
-                    <span component-rating="{{movie.Rating}}" ng-model="movie.Rating" class="form-control"></span>
+                    <jk-rating-stars max-rating="5" 
+                                     rating="movie.Rating" 
+                                     read-only="false">
+                    </jk-rating-stars>
                 </div>
                 <br />
-                <div class="form-group col-xs-4">
+
+                <div class="form-group">
                     <label class="control-label"></label>
                     <div class="">
                         <input type="submit" class="btn btn-primary" value="Submit movie" />
