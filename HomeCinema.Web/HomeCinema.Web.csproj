@@ -224,7 +224,6 @@
     <Content Include="Scripts\spa\customers\editCustomerModal.html" />
     <Content Include="Scripts\spa\customers\register.html" />
     <Content Include="Scripts\spa\directives\availableMovie.html" />
-    <Content Include="Scripts\spa\directives\componentRating.directive.js" />
     <Content Include="Scripts\spa\home\index.html" />
     <Content Include="Scripts\spa\home\indexCtrl.js" />
     <Content Include="Scripts\spa\home\rootCtrl.js" />

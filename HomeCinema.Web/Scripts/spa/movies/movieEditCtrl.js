@@ -29,11 +29,12 @@
         function loadMovie() {
             $scope.loadingMovie = true;
 
-            apiService.get('/api/movie/details/' + $routeParams.id, null, movieLoadCompleted, movieLoadFailed);
+            apiService.get('/api/movies/details/' + $routeParams.id, null, movieLoadCompleted, movieLoadFailed);
         }
 
         function movieLoadCompleted(result) {
             $scope.movie = result.data;
+            $scope.movie.ReleaseDate = new Date($scope.movie.ReleaseDate);
             $scope.loadingMovie = false;
 
             loadGenres();
@@ -83,10 +84,7 @@
             notificationService.displayError(error.data);
         }
 
-        function openDatePicker($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
+        function openDatePicker() {
             $scope.datepicker.opened = true;
         };
 

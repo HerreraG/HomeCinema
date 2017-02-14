@@ -6,9 +6,9 @@
            .config(config)
            .run(run);
 
-    config.inject = ['$routeProvider', '$locationProvider'];
+    config.inject = ['$routeProvider', '$locationProvider', '$httpProvider'];
 
-    function config($routeProvider, $locationProvider) {
+    function config($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
         .when("/", {
             templateUrl: "scripts/spa/home/index.html",
@@ -37,7 +37,8 @@
         })
         .when("/movies/add", {
             templateUrl: "scripts/spa/movies/add.html",
-            controller: "movieAddCtrl"
+            controller: "movieAddCtrl",
+            resolve: { isAuthenticated: isAuthenticated }
         })
         .when("/movies/:id", {
             templateUrl: "scripts/spa/movies/details.html",
@@ -45,7 +46,8 @@
         })
         .when("/movies/edit/:id", {
             templateUrl: "scripts/spa/movies/edit.html",
-            controller: "movieEditCtrl"
+            controller: "movieEditCtrl",
+            resolve: { isAuthenticated: isAuthenticated }
         })
         .when("/rental", {
             templateUrl: "scripts/spa/rental/index.html",
@@ -53,6 +55,8 @@
         }).otherwise({ redirectTo: "/" });
 
         $locationProvider.hashPrefix('');
+
+        $httpProvider.useApplyAsync(true);
     }
 
     isAuthenticated.$inject = ['membershipService', '$rootScope', '$location'];
@@ -70,7 +74,7 @@
         $rootScope.repository = $cookieStore.get('repository') || {};
 
         if ($rootScope.repository.loggedUser) {
-            $http.defaults.headers.common['Authorization'] = $rootScope.repository.loggedUser.authdata;
+            $http.defaults.headers.common['Authorization'] = $rootScope.repository.loggedUser.authData;
         }
 
         $(document).ready(function () {

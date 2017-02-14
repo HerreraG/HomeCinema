@@ -81,7 +81,7 @@
         };
 
         function redirectToEdit() {
-            $location.url('movies/edit/' + $scope.movie.ID);
+            $location.url('movies/edit/' + $scope.movie.Id);
         }
 
         function changeNumberOfStocks($vent) {

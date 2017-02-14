@@ -13,15 +13,17 @@
 
         <!-- edit form column -->
         <div class="col-xs-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-pencil-square-o"></i>
-                Edit <strong>{{movie.Title}}</strong> movie. Make sure you fill all required fields.
-            </div>
-            <form class="form-horizontal" role="form" 
-                  novalidate angular-validator 
-                  name="editMovieForm" 
+            <form class="form-horizontal" role="form"
+                  novalidate angular-validator
+                  name="editMovieForm"
                   angular-validator-submit="UpdateMovie()">
+
+                <div class="alert alert-info alert-dismissable form-group">
+                    <a class="panel-close close" data-dismiss="alert">×</a>
+                    <i class="fa fa-pencil-square-o"></i>
+                    Edit <strong>{{movie.Title}}</strong> movie. Make sure you fill all required fields.
+                </div>
+
                 <div class="form-group">
                     <div class="row">
                         <div class="col-xs-8">
@@ -32,11 +34,10 @@
 
                         <div class="col-xs-4 selectContainer">
                             <label class="control-label">Genre</label>
-                            <select ng-model="movie.GenreId" 
-                                    class="form-control black" 
-                                    ng-options="option.ID as option.Name for option in genres" 
-                                    required>
-                            </select>
+                            <select ng-model="movie.GenreId"
+                                    class="form-control black"
+                                    ng-options="option.Id as option.Name for option in genres"
+                                    required></select>
                             <input type="hidden" name="GenreId" ng-value="movie.GenreId" />
                         </div>
                     </div>
@@ -69,22 +70,23 @@
                         <div class="col-xs-6">
                             <label class="control-label">Release Date</label>
                             <p class="input-group">
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="dateReleased" 
-                                       datepicker-popup="{{format}}" 
-                                       ng-model="movie.ReleaseDate" 
-                                       is-open="datepicker.opened" 
-                                       datepicker-options="dateOptions" 
-                                       ng-required="true" 
-                                       datepicker-append-to-body="true" 
+                                <input type="text"
+                                       name="dateReleased"
+                                       class="form-control"
+                                       uib-datepicker-popup
+                                       datepicker-append-to-body="true"
+                                       ng-model="movie.ReleaseDate"
+                                       is-open="datepicker.opened"
+                                       datepicker-options="dateOptions"
                                        close-text="Close"
-                                       validate-on="blur" required required-message="'Date Released is required'" />
+                                       validate-on="blur"
+                                       required
+                                       required-message="'Date Released is required'" />
                                 <span class="input-group-btn">
-                                    <button type="button" 
-                                            class="btn btn-default" 
-                                            ng-click="openDatePicker($event)">
-                                    <i class="glyphicon glyphicon-calendar"></i>
+                                    <button type="button"
+                                            class="btn btn-default"
+                                            ng-click="openDatePicker()">
+                                        <i class="glyphicon glyphicon-calendar"></i>
                                     </button>
                                 </span>
                             </p>
@@ -93,8 +95,8 @@
                         <div class="col-xs-6">
                             <label class="control-label">Youtube trailer</label>
                             <input class="form-control" type="text" ng-model="movie.TrailerURI" name="trailerURI"
-                                   validate-on="blur" 
-                                   required required-message="'Movie trailer is required'" 
+                                   validate-on="blur"
+                                   required required-message="'Movie trailer is required'"
                                    ng-pattern="/^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/"
                                    invalid-message="'You must enter a valid YouTube URL'">
                         </div>
@@ -109,7 +111,10 @@
 
                 <div class="form-group col-xs-12">
                     <label class="control-label">Rating</label>
-                    <span component-rating="{{movie.Rating}}" ng-model="movie.Rating" class="form-control"></span>
+                    <jk-rating-stars max-rating="5"
+                                     rating="movie.Rating"
+                                     read-only="false">
+                    </jk-rating-stars>
                 </div>
                 <br />
                 <div class="form-group col-xs-4">
